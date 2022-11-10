@@ -1,6 +1,6 @@
 reg_map = Region(0,23,349,133)
 reg_sort = Region(825,926,496,111)
-reg_centre = Region(861,215,694,560)
+reg_centre = Region(421,91,1073,832)
 reg_combat= Region(359,97,1231,816)
 reg_pret = Region(1130,643,677,392)
 
@@ -14,7 +14,7 @@ imgPosMap="posMap.PNG"
 imgSortInvoc="sortInvoc.png"
 imgCaseDeplacement="caseDeplacement.png"
 
-pathToScript="C:\\Users\\Nmane\\Documents\\sikulix\\farm_paysan\\"
+pathToScript="C:\\Users\\Blubi\\OneDrive\\Documents\\sikuliFarmDofus\\farm_paysan\\"
 
 
 
@@ -52,12 +52,14 @@ cpt = 0
 compteurFin=0
 objectifFin=3600
 
-dossier1 = pathToScript + "orge"
+dossier1 = pathToScript + "avoine"
 dossier2 = pathToScript + "ortie"
-dossier3 = pathToScript + "poisson"
+#dossier3 = pathToScript + "poisson"
+#dossier4 = pathToScript + "ble"
 listeObjetsQuiSerontCliques = [(dossier1 + "/" + e) for e in os.listdir(dossier1)]
 listeObjetsQuiSerontCliques.extend([(dossier2 + "/" + e) for e in os.listdir(dossier2)])
-listeObjetsQuiSerontCliques.extend([(dossier3 + "/" + e) for e in os.listdir(dossier3)])
+#listeObjetsQuiSerontCliques.extend([(dossier3 + "/" + e) for e in os.listdir(dossier3)])
+#listeObjetsQuiSerontCliques.extend([(dossier4 + "/" + e) for e in os.listdir(dossier4)])
 
 #while reg_map.exists(imgPosMap):
 while compteurFin < objectifFin :
@@ -73,7 +75,7 @@ while compteurFin < objectifFin :
             y = match.getTarget().getY()
             click(Location(x+r1, y-r2))            
             wait(2+randomTime2)
-            wait(2+randomTime)
+            wait(1+randomTime)
     if cpt >= 10:
         if reg_sort.exists(imgBarreSort):
             combat()
@@ -82,4 +84,7 @@ while compteurFin < objectifFin :
         wait(0.3+randomTime)
     cpt+=1
     compteurFin+=1
+    print(compteurFin)
+    wait(1)
+    
 
